@@ -102,6 +102,8 @@
 
         .post-footer {
             display: flex;
+            justify-content: space-evenly;
+            align-items: center;
             gap: 10px;
             margin-top: 15px;
             border-top: 1px solid #eee;
@@ -124,7 +126,7 @@
                     <i class="fas fa-users" data-bs-toggle="tooltip" title="Groups"></i>
                 </div>
                 <div class="right">
-                    <button class="toggle-btn d-block d-md-none" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <button class="toggle-btn d-block d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar">
                         <i class="fas fa-bars" data-bs-toggle="tooltip" title="Menu"></i>
                     </button>
                     <i class="fab fa-facebook-messenger" data-bs-toggle="tooltip" title="Messenger"></i>
@@ -135,7 +137,10 @@
         </div>
 
         <div class="row">
-            <nav id="sidebar" class="col-md-3 col-lg-2 sidebar d-md-block d-none">
+
+
+            
+            <nav id="sidebar" class="col-md-3 col-lg-2 sidebar d-md-block d-none collapse">
                 <ul class="nav flex-column">
                     <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-user-friends p-2"></i>Friends</a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-history p-2"></i>Memories</a></li>
@@ -179,6 +184,9 @@
     </div>
 
     <script>
+
+
+
         let currentPage = 1;
         const itemsPerPage = 5;  
     
@@ -209,9 +217,10 @@
                     </div>
                     <div class="post-content">${item.body}</div>  
                     <div class="post-footer">
-                        <button class="btn btn-light"><i class="fas fa-thumbs-up"></i> Like</button>
-                        <button class="btn btn-light"><i class="fas fa-comment"></i> Comment</button>
-                        <button class="btn btn-light"><i class="fas fa-share"></i> Share</button>
+                        <button class="btn btn-light left"><i class="far fa-thumbs-up"></i> Like</button>
+                        <button class="btn btn-light center"><i class="far fa-comment"></i> Comment</button>
+                       <button class="btn btn-light right"><i class="fab fa-whatsapp"></i> Send</button>
+                        <button class="btn btn-light right"><i class="fas fa-share"></i> Share</button>
                     </div>
                 `;
                 container.appendChild(postElement);
@@ -229,7 +238,7 @@
                 <button class="btn btn-primary" onclick="nextPage()" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
             `;
         }
-    
+
  
         function nextPage() {
             if (currentPage < 20) {
